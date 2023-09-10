@@ -699,6 +699,7 @@ void DBImpl::BackgroundCall() {
   background_work_finished_signal_.SignalAll();
 }
 
+// compaction核心逻辑
 void DBImpl::BackgroundCompaction() {
   mutex_.AssertHeld();
 
