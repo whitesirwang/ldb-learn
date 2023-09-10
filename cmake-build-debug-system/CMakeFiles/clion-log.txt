@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/whitesir/agora-cpp-work/ldb-learn
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/whitesir/agora-cpp-work/ldb-learn/cmake-build-debug-system
