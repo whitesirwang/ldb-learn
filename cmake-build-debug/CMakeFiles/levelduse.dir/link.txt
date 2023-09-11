@@ -1,0 +1,1 @@
+/usr/bin/c++   -fno-exceptions -fno-rtti -g   CMakeFiles/levelduse.dir/db_use/main.cpp.o  -o levelduse  libleveldb.a -lpthread 
