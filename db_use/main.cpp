@@ -14,12 +14,12 @@ int main(int arg, char** args) {
 #define WRITE_KEYS
   auto ro = leveldb::ReadOptions();
 #ifdef WRITE_KEYS
-  for (int i = 0; i <= 100; ++i) {
+  for (int i = 0; i <= 100000; ++i) {
     auto opts = leveldb::WriteOptions();
     opts.sync = true;
-        if (i == 100) {
-          ro.snapshot = db->GetSnapshot();
-        }
+    if (i == 100) {
+      ro.snapshot = db->GetSnapshot();
+    }
     status = db->Put(opts, "key", "value_" + std::to_string(i));
     assert(status.ok());
   }

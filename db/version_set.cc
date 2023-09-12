@@ -775,6 +775,9 @@ void VersionSet::AppendVersion(Version* v) {
   v->next_->prev_ = v;
 }
 
+// 此函数中主要是通过edit新建一个version,
+// 并将变更信息写入manifest文件中(强制sync),保证manifest的修改最后落盘
+// 在此之前对文件的变更一定是已经做了的，可能没刷盘, 是在操作系统的page cache中
 Status VersionSet::LogAndApply(VersionEdit* edit, port::Mutex* mu) {
   if (edit->has_log_number_) {
     assert(edit->log_number_ >= log_number_);
