@@ -11,9 +11,9 @@ int main(int arg, char** args) {
   leveldb::Status status = leveldb::DB::Open(
       options, "/Users/whitesir/agora-cpp-work/ldb-learn/testdb", &db);
   assert(status.ok());
-#define WRITE_KEYS
+//#define WRITE_KEYS
 #ifdef WRITE_KEYS
-  for (int i = 0; i <= 100000; ++i) {
+  for (int i = 0; i <= 10000; ++i) {
     auto opts = leveldb::WriteOptions();
     // opts.sync = true;
     status =
@@ -27,7 +27,7 @@ int main(int arg, char** args) {
     ++count;
     std::cout << it->key().ToString() << ": " << it->value().ToString()
               << std::endl;
-    db->Delete(leveldb::WriteOptions(), it->key());
+    // db->Delete(leveldb::WriteOptions(), it->key());
   }
   std::cout << "key count : " << count << std::endl;
   std::cout << "status string" << it->status().ToString() << std::endl;
