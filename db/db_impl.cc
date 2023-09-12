@@ -234,7 +234,7 @@ void DBImpl::RemoveObsoleteFiles() {
 
   // Make a set of all of the live files
   std::set<uint64_t> live = pending_outputs_;
-  versions_->AddLiveFiles(&live);
+  versions_->AddLiveFiles(&live);  // 所有正在被使用的version所包含的文件都不能被删除
 
   std::vector<std::string> filenames;
   env_->GetChildren(dbname_, &filenames);  // Ignoring errors on purpose
